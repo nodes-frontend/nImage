@@ -6,7 +6,9 @@ This is a simple image preloader
 
 ## How to
 
+```html
 <n-image-preloader source="mediaAgreements.img" width="200" height="200" extra-classes="" extra-loading-classes="" ></n-image-preloader> 
+```
 
 ### Parameters
 
