@@ -43,8 +43,8 @@ module.exports = function (grunt) {
 		},
 
 		/*
-			Watch tasks
-		*/
+		 Watch tasks
+		 */
 		watch: {
 			options: {
 				spawn: false
@@ -62,8 +62,8 @@ module.exports = function (grunt) {
 				tasks: ['bs-reload']
 			},
 			sass: {
-				files: ['<%= yeoman.src %>/**/*.{scss,sass}'],
-				tasks: ['sass:server', 'autoprefixer', 'bs-injectScss']
+				files: ['<%= yeoman.src %>/**/*.{scss,sass}', 'test.scss'],
+				tasks: ['copy:dist', 'sass:server', 'autoprefixer', 'bs-injectScss']
 			},
 			gruntfile: {
 				files: ['Gruntfile.js']
@@ -71,8 +71,8 @@ module.exports = function (grunt) {
 		},
 
 		/*
-			SASS & CSS Tasks
-		*/
+		 SASS & CSS Tasks
+		 */
 		// Add vendor prefixed styles
 		autoprefixer: {
 			options: {
@@ -90,21 +90,26 @@ module.exports = function (grunt) {
 		// Compiles Sass to CSS and generates necessary files if requested
 		sass: {
 			options: {
-				sourcemap: true
+				sourceMap: true,
+				sourceComments: true,
+				outFile: '.tpm/styles/test',
+				omitSourceMapUrl: false
 			},
 			server: {
 				files: {
-					'.tmp/styles/<%= pkg.name %>.css': '<%= yeoman.src %>/<%= pkg.name %>.scss'
+					'<%= yeoman.dist %>/<%= pkg.name %>.css': '<%= yeoman.src %>/<%= pkg.name %>.scss',
+					'test.css': 'test.scss'
+					//'<%= yeoman.dist %>/<%= pkg.name %>.foundation.css': '<%= yeoman.src %>/<%= pkg.name %>.foundation.scss'
 				}
 			}
 		},
 
 		/*
-			Javascript Tasks
-		*/
+		 Javascript Tasks
+		 */
 
 		/*
-			AngularJS Specific tasks
+		 AngularJS Specific tasks
 		 */
 		// ng-annotate tries to make the code safe for minification automatically
 		// by using the Angular long form for dependency injection.
@@ -128,6 +133,9 @@ module.exports = function (grunt) {
 				dest: '.tmp/scripts/templates.js',
 				options: {
 					module: '<%= pkg.name %>',
+					url: function(url) {
+						return url.replace('dist/', '');
+					},
 					htmlmin: {
 						collapseBooleanAttributes: false,
 						collapseWhitespace: false,
@@ -143,14 +151,32 @@ module.exports = function (grunt) {
 		},
 
 		/*
-			Global Build Tasks
-		*/
+		 Global Build Tasks
+		 */
+		useminPrepare: {
+			html: 'index.html',
+			options: {
+				flow: {
+					steps: {
+						css: []
+					}
+				}
+			}
+		},
+		usemin: {
+
+		},
 		concat: {
 			options: {
 				banner: '<%= meta.banner %>'
 			},
 			dist: {
-				src: ['.tmp/scripts/*.js'],
+				src: [
+					'.tmp/scripts/*.module.js',
+					'.tmp/scripts/*.provider.js',
+					'.tmp/scripts/*.*.directive.js',
+					'.tmp/scripts/templates.js'
+				],
 				dest: '<%= yeoman.dist %>/<%= pkg.name %>.js'
 			}
 		},
@@ -177,16 +203,18 @@ module.exports = function (grunt) {
 		},
 
 		/*
-			Global Utility Tasks
-		*/
+		 Global Utility Tasks
+		 */
 		// Automatically inject Bower components into the app
 		wiredep: {
 			options: {
-				cwd: ''
+				cwd: '',
+				devDependencies: true,
+				includeSelf: true
 			},
 			app: {
-				src: ['index.html'],
-				ignorePath: /\.\.\//
+				src: ['index.html', 'test.scss']
+				//ignorePath: /\.\.\//
 			}
 		},
 		// Empties folders to start fresh
@@ -214,7 +242,7 @@ module.exports = function (grunt) {
 	});
 
 	/*
-		Command line tasks
+	 Command line tasks
 	 */
 	grunt.registerTask('serve', 'Compile then start a connect web server', function (target) {
 		if (target === 'dist') {
@@ -224,6 +252,7 @@ module.exports = function (grunt) {
 		grunt.task.run([
 			'clean:server',
 			'wiredep',
+			'sass',
 			'concurrent:server',
 			'autoprefixer',
 			'bs-connect',
@@ -265,13 +294,14 @@ module.exports = function (grunt) {
 	grunt.registerTask('bs-connectDist', function () {
 		browserSync({
 			server: {
-				baseDir: ['/']
+				baseDir: ['.']
 			}
 		});
 	});
 
 	grunt.registerTask('bs-injectScss', function () {
-		browserSync.reload(appConfig.moduleName + '.css');
+		//browserSync.reload([appConfig.moduleName + '.css']);
+		browserSync.reload(['test.css']);
 	});
 
 	grunt.registerTask('bs-reload', function () {

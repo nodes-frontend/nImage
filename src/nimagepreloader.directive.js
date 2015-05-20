@@ -15,7 +15,7 @@
 		 */
 		var directive = {
 
-			templateUrl: 'nimagepreloader.template.html',
+			templateUrl: 'nImagePreloader.template.html',
 			link: link,
 			scope: {
 				source: '@',
