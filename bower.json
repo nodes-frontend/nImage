@@ -6,12 +6,12 @@
   "author": "Tommy Jepsen, Dennis Haulund Nielsen",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/nodes-galactic/nImage"
   },
   "main": [
-    "dist/nImagePreloader.js",
-    "dist/nImagePreloader.css",
-    "dist/nImagePreloader.scss"
+    "dist/nImage.js",
+    "dist/nImage.css",
+    "dist/nImage.scss"
   ],
   "ignore": [
     "demo"

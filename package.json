@@ -1,12 +1,12 @@
 {
-	"name": "nImagePreloader",
+	"name": "nImage",
 	"version": "1.0.0",
-	"description": "Nodes Image Preloader",
+	"description": "Nodes Image",
 	"homepage": "http://nodes.dk",
-	"author": "Tommy Jepsen",
+	"author": "Tommy Jepsen, Dennis Haulund Nielsen",
 	"repository": {
 		"type": "git",
-		"url": ""
+		"url": "https://github.com/nodes-galactic/nImage"
 	},
 	"licenses": [
 		{

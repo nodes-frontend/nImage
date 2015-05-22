@@ -2,20 +2,18 @@
 	'use strict';
 
 	angular
-		.module('nImagePreloader')
+		.module('nImage')
 	  	.directive('nImage', nImage);
 
 	/* @ngInject */
 	function nImage($window, $q, $timeout, $templateCache, $http, $compile) {
 		/**
 		 * @ngdoc directive
-		 * @name nImagePreloader
-		 * @description - Use n-image-preloader source="mediaAgreements.img" width="200"
-		 * # nImagePreloader
+		 * @name nImage
 		 */
 		var directive = {
 			restrict: 'EA',
-			templateUrl: 'src/nImagePreloader.template.html',
+			templateUrl: 'src/nImage.template.html',
 			link: link
 		};
 
