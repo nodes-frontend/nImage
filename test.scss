@@ -20,3 +20,25 @@ $primary-color: darken(magenta, 25%);
 /*
 	Test Foundation skinning component (@mixins)
 */
+
+/*
+	Demo spinner styling
+*/
+.n-image__loader svg {
+	stroke: $primary-color;
+	width: 30px;
+	height: 30px;
+	animation-name: spinSpinner;
+	animation-duration: 0.75s;
+	animation-delay: 0s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+}
+@keyframes spinSpinner {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}

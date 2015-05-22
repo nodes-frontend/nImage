@@ -6,19 +6,79 @@
 		<base href="/">
 		<meta name="description" content="">
 		<meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" href="test.css"/>
 	</head>
 	<body ng-app="demoApp">
+        <div ng-controller="demoCtrl as demo">
 
+            <div class="row">
+                <div class="small-12 columns">
+                </div>
+            </div>
+
+            <!--<button ng-click="demo.randomize()">Random</button>-->
+
+            <!--<div n-image-->
+                <!--width="333"-->
+                <!--height="222"-->
+                <!--mode="fit"-->
+                <!--alt="myImageIsAwesome"-->
+                <!--n-src="https://d1gwekl0pol55k.cloudfront.net/image/crowdit/features/kort.Xs4pqzh7uS.png">-->
+            <!--</div>-->
+
+            <!--<div n-image width="768" height="100" n-src="http://www.google.dk/fail.jpg" n-image-options="demo.imageOptions"></div>-->
+
+            <div class="row">
+                <div class="small-6 columns">
+                    <ul class="small-block-grid-2 medium-block-grid-4 large-block-grid-6">
+                        <li ng-repeat="img in demo.images">
+                            <div n-image
+                                 n-src="img"
+                                 n-image-options="demo.imageOptions"
+                                 alt="One image"></div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="small-6 columns" id="wrapperContainer" style="height: 500px; overflow-y: auto">
+                    <ul class="small-block-grid-2 medium-block-grid-4 large-block-grid-6">
+                        <li ng-repeat="img in demo.innerImages">
+                            <div n-image
+                                 n-image-container="#wrapperContainer"
+                                 n-src="img"
+                                 n-image-options="demo.imageOptions"
+                                 alt="One image"></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+
+            <!--<div id="imageWrappingContainer" style="height: 500px; overflow-y: auto;">-->
+                <!--<div ng-repeat="img in demo.images">-->
+                    <!--<div n-image-->
+                         <!--n-src="img"-->
+                         <!--n-image-container="#imageWrappingContainer"-->
+                         <!--n-image-options="demo.imageOptions"></div>-->
+                <!--</div>-->
+            <!--</div>-->
+
+            <!--<div ng-repeat="img in demo.images">-->
+                <!--<div n-image n-src="img" width="800" height="600"></div>-->
+            <!--</div>-->
+            <!--<div ng-repeat="img in demo.images">-->
+                <!--<div n-image n-src="img"></div>-->
+            <!--</div>-->
+        </div>
 		<!-- bower:js -->
 		<script src="bower_components/modernizr/modernizr.js"></script>
 		<script src="bower_components/jquery/dist/jquery.js"></script>
-		<script src="bower_components/angular/angular.js"></script>
 		<script src="bower_components/fastclick/lib/fastclick.js"></script>
 		<script src="bower_components/jquery.cookie/jquery.cookie.js"></script>
 		<script src="bower_components/jquery-placeholder/jquery.placeholder.js"></script>
 		<script src="bower_components/foundation/js/foundation.js"></script>
-		<script src="bower_components/angular-mocks/angular-mocks.js"></script>
-		<script src="bower_components/angular-scenario/angular-scenario.js"></script>
+		<script src="bower_components/angular/angular.js"></script>
+		<script src="bower_components/angular-animate/angular-animate.js"></script>
 		<script src="dist/nImagePreloader.js"></script>
 		<!-- endbower -->
 
@@ -26,7 +86,49 @@
 		<script src="src/nImagePreloader.directive.js"></script>
 
 		<script>
-			angular.module('demoApp', ['nImagePreloader']);
+			angular.module('demoApp', ['nImagePreloader', 'ngAnimate']);
+
+            angular.module('demoApp')
+                    .controller('demoCtrl', demoCtrl)
+            function demoCtrl() {
+                var vm = this;
+
+                vm.imageOptions = {
+//                    fallbackImage: 'http://placehold.it/768x100/000000/ffffff&text=fallbackImage',
+                    loadingTemplateUrl: 'loading-test.html',
+//                    loadingTemplate: '<h1>Nedlaster...</h1>',
+                    disableLazy: true,
+                    nodesCDN: false,
+                    aspectRatio: '4-3'
+                };
+
+                vm.altText = 'My alt text defined in some controller';
+
+                vm.images = [];
+                vm.innerImages = [];
+
+                vm.randomize = function() {
+                    vm.images = [];
+                    for(var i = 0; i < 200; i++) {
+                        var img = _generateRandomImage();
+                        vm.images.push(img);
+                    }
+                };
+                vm.randomizeInner = function() {
+                    vm.innerImages = [];
+                    for(var i = 0; i < 200; i++) {
+                        var img = _generateRandomImage();
+                        vm.innerImages.push(img);
+                    }
+                };
+                vm.randomize();
+                vm.randomizeInner();
+
+                function _generateRandomImage() {
+                    var color = Math.floor(Math.random()*16777215).toString(16);
+                    return 'http://placehold.it/800x600/' + color + '/ffffff';
+                }
+            }
 		</script>
 	</body>
 </html>

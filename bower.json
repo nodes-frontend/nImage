@@ -1,9 +1,9 @@
 {
-  "name": "nImagePreloader",
+  "name": "nImage",
   "version": "1.0.0",
-  "description": "Nodes Image Preloader",
+  "description": "Nodes Image",
   "homepage": "http://nodes.dk",
-  "author": "Tommy Jepsen",
+  "author": "Tommy Jepsen, Dennis Haulund Nielsen",
   "repository": {
     "type": "git",
     "url": ""
@@ -17,11 +17,9 @@
     "demo"
   ],
   "dependencies": {
-    "angular": "*",
-    "foundation": "~5.5.2"
+    "foundation": "~5.5.2",
+    "angular": "~1.3.15",
+    "angular-animate": "~1.3.15"
   },
-  "devDependencies": {
-    "angular-mocks": "1.3.0",
-    "angular-scenario": "1.3.0"
-  }
+  "devDependencies": {}
 }
