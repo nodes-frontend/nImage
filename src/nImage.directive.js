@@ -138,10 +138,10 @@
 				var queryParams = [];
 
 				if(width) {
-					queryParams.push('width=' + width);
+					queryParams.push('w=' + width);
 				}
 				if(height) {
-					queryParams.push('height=' + height);
+					queryParams.push('h=' + height);
 				}
 				if(mode && (allowedModes.indexOf(mode) !== -1)) {
 					queryParams.push('mode=' + mode);
