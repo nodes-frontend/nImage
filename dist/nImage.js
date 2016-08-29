@@ -1,6 +1,6 @@
 /**
  * Nodes Image
- * @version v1.0.0 - 2015-05-22
+ * @version v1.0.0 - 2016-08-29
  * @link http://nodes.dk
  * @author Tommy Jepsen, Dennis Haulund Nielsen
  * @license MIT License, http://www.opensource.org/licenses/MIT
@@ -38,8 +38,8 @@
 			var allowedModes = ['crop', 'resize', 'fit'];
 
 			var timeout, source, alt, width, height, aspectRatio, mode;
-
-			var $wrapper = angular.element(attrs.nImageContainer || $window);
+			
+			var $wrapper = angular.element(document.querySelector(attrs.nImageContainer) || $window);
 			var $element = angular.element(element);
 			var loaded = false;
 
@@ -101,9 +101,9 @@
 			}
 
 			function _configureContainer() {
-
+				
 				var $loadingContainer = element.find('.n-image__loader');
-
+				
 				element.addClass('n-image__wrapper');
 
 				if(options.loadingTemplateUrl) {
@@ -282,7 +282,7 @@
 angular.module('nImage').run(['$templateCache', function($templateCache) {
   'use strict';
 
-  $templateCache.put('nImage.template.html',
+  $templateCache.put('src/nImage.template.html',
     "<div ng-show=\"isLoading\" class=\"n-image__loader\"></div>\n" +
     "<img ng-hide=\"isLoading\" src=\"\" class=\"n-image\">"
   );

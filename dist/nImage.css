@@ -27,18 +27,23 @@
 .n-image {
   width: 100%; }
 
-/* line 37, /Applications/MAMP/htdocs/nImage/src/nImage.scss */
-.n-image, .n-image__loader {
+/* line 36, /Applications/MAMP/htdocs/nImage/src/nImage.scss */
+.n-image,
+.n-image__loader {
   opacity: 1; }
-  /* line 41, /Applications/MAMP/htdocs/nImage/src/nImage.scss */
-  .n-image.ng-hide-add.ng-hide-add-active, .n-image.ng-hide-remove.ng-hide-remove-active, .n-image__loader.ng-hide-add.ng-hide-add-active, .n-image__loader.ng-hide-remove.ng-hide-remove-active {
+  /* line 40, /Applications/MAMP/htdocs/nImage/src/nImage.scss */
+  .n-image.ng-hide-add.ng-hide-add-active, .n-image.ng-hide-remove.ng-hide-remove-active,
+  .n-image__loader.ng-hide-add.ng-hide-add-active,
+  .n-image__loader.ng-hide-remove.ng-hide-remove-active {
     transition: opacity 5s; }
   /* line 45, /Applications/MAMP/htdocs/nImage/src/nImage.scss */
-  .n-image.ng-hide, .n-image__loader.ng-hide {
+  .n-image.ng-hide,
+  .n-image__loader.ng-hide {
     opacity: 0; }
 
-/* line 51, /Applications/MAMP/htdocs/nImage/src/nImage.scss */
-.n-image--ratio-4-2, .n-image--ratio-2-1 {
+/* line 50, /Applications/MAMP/htdocs/nImage/src/nImage.scss */
+.n-image--ratio-4-2,
+.n-image--ratio-2-1 {
   padding-bottom: 50%;
   /* (2/4)*100 */ }
 

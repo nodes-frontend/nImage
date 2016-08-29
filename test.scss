@@ -8,7 +8,7 @@ $primary-color: darken(magenta, 25%);
 /*
 	Import Foundation scss, as this is what we do in development
 */
-@import "bower_components/foundation/scss/foundation";
+//@import "bower_components/foundation/scss/foundation";
 
 /*
 	Test bower.json + wiredep (remove this line, run grunt wiredep, look here)

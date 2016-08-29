@@ -24,8 +24,8 @@
 			var allowedModes = ['crop', 'resize', 'fit'];
 
 			var timeout, source, alt, width, height, aspectRatio, mode;
-
-			var $wrapper = angular.element(attrs.nImageContainer || $window);
+			
+			var $wrapper = angular.element(document.querySelector(attrs.nImageContainer) || $window);
 			var $element = angular.element(element);
 			var loaded = false;
 
@@ -87,9 +87,9 @@
 			}
 
 			function _configureContainer() {
-
+				
 				var $loadingContainer = element.find('.n-image__loader');
-
+				
 				element.addClass('n-image__wrapper');
 
 				if(options.loadingTemplateUrl) {

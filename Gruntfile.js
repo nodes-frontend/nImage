@@ -134,7 +134,7 @@ module.exports = function (grunt) {
 				options: {
 					module: '<%= pkg.name %>',
 					url: function(url) {
-						return url.replace('dist/', '');
+						return 'src/' + url;
 					},
 					htmlmin: {
 						collapseBooleanAttributes: false,
