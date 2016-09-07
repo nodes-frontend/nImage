@@ -1,7 +1,12 @@
-node_modules
-.tmp
+.DS_Store
+.coveralls.yml
+node_modules/
+.tmp/
 .sass-cache
-bower_components
+bower_components/
+jspm_packages/
 _local.config.js
-.idea
+.idea/
+coverage/
+typings/
 npm-debug.log
