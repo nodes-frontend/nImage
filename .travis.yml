@@ -13,7 +13,7 @@ before_script:
   - npm prune
 after_success:
   - npm run semantic-release
-  - npm run coveralls (optional)
+  - npm run coveralls
   - bash deploy.sh
 branches:
   except:
