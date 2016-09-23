@@ -1,227 +1,324 @@
-<!doctype html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<title></title>
-		<base href="/">
-		<meta name="description" content="">
-		<meta name="viewport" content="width=device-width">
-        <link rel="stylesheet" href="./test.css"/>
-	</head>
-	<body ng-app="demoApp">
-        <div ng-controller="demoCtrl as demo">
-
-            <div class="row">
-                <div class="small-12 columns text-center">
-                    <h3>nImage module</h3>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>nodes-component-starter</title>
+    
+        <link rel="stylesheet" href="docs.css">
+        
+        <link rel="stylesheet" href="component.css">
+    
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/tomorrow.min.css">
+        
+        <style>
+            [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+                display: none !important;
+            }
+        </style>
+    
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,700" rel="stylesheet">
+    </head>
+    <body ng-app="demoApp" ng-cloak>
+        
+        
+        <div class="n-docs-header">
+            
+            <div headroom offset="330" classes="{pinned: 'n-docs-navbar--pinned', unpinned: 'n-docs-navbar--unpinned', top: 'n-docs-navbar--top'}" class="n-docs-navbar">
+                <canvas n-docs-granim colors="[['#2199e8', '#6433e8'],['#936cfb', '#5abbfc']]" class="n-docs-navbar__gradient"></canvas>
+                
+                <div class="n-docs-navbar__content">
+                    <div class="small-6 columns">
+                        <h1 class="n-docs-navbar__title">
+                            nodes-component-starter
+                        </h1>
+                    </div>
+                    <div class="small-6 columns">
+                        <n-docs-github-link></n-docs-github-link>
+                    </div>
                 </div>
-                <div class="small-6 columns">
-                    <h5>n-image-options:</h5>
-                    <h6>the following options can be used on each directive-instance</h6>
-                    <ul>
-                        <li>
-                            <p><pre>fallbackImage</pre></p>
-                            <p>String or url</p>
-                        </li>
-                        <li>
-                            <p><pre>loadingTemplateUrl</pre></p>
-                            <p>Let's you use a template as the loading "spinner"</p>
-                        </li>
-                        <li>
-                            <p><pre>loadingTemplate</pre></p>
-                            <p>Let's you use a string or inline markup as the loading "spinner".</p>
-                            <p>NOTE: if <strong>loadingTemplateUrl</strong> is defined, this options is ignored.</p>
-                        </li>
-                        <li>
-                            <p><pre>disableLazy</pre></p>
-                            <p>Disable lazy loading of images</p>
-                        </li>
-                        <li>
-                            <p><pre>nodesCDN</pre></p>
-                            <p>If true the following attributes are attached to the image src url: <pre>width, height, mode[crop,resize,fit]</pre></p>
-                        </li>
-                        <li>
-                            <p><pre>offest</pre></p>
-                            <p>Amount of distance from the bottom of the scrollable container before image is loaded</p>
-                        </li>
-                    </ul>
-                </div>
-                <div class="small-6 columns">
-                    <h5>n-image attributes</h5>
-                    <h6>the following node-attributes can be used:</h6>
-                    <ul>
-                        <li>
-                            <p><pre>n-src</pre></p>
-                            <p>The source of the image. The standard "src" attribute is not supported as this gives people a chance to inject malicious code</p>
-                        </li>
-                        <li>
-                            <p><pre>n-image-container</pre></p>
-                            <p>If you are using lazyload, and the scroll happens inside a container (not the window), make sure to write the container selector in this attribute</p>
-                            <p><pre>n-image-container="#container"</pre></p>
-                        </li>
-                        <li>
-                            <p><pre>aspect-ratio</pre></p>
-                            <p>If provided the image-container will be styled as an aspect-ratio container.</p>
-                            <p>The following aspect ratios are provided by default: 4-2, 2-1, 16-9, 3-2, 1-1, 4-3, 3-4, but feel welcome to add more (look in the scss for examples)</p>
-                        </li>
-                        <li>
-                            <p><pre>alt</pre></p>
-                            <p>Just as you know it :-)</p>
-                        </li>
-                    </ul>
+                
+            </div>
+    
+            <div class="n-docs-hero">
+                <canvas n-docs-granim colors="[['#2199e8', '#6433e8'],['#936cfb', '#5abbfc']]" class="n-docs-hero__gradient"></canvas>
+                
+                <div class="n-docs-hero__content row">
+                    <div class="small-12 columns">
+                        <h1 class="n-docs-hero__title">
+                            nodes-component-starter
+                        </h1>
+                    </div>
+                    <div class="small-12 columns">
+                        <h2 class="n-docs-hero__subtitle">
+                            A toolset for creating, maintaining and releasing open-source Angular 1.x modules with Typescript.
+                        </h2>
+                    </div>
+                    <div class="small-12 columns text-center n-docs-hero__github">
+                        <n-docs-github-latest-release></n-docs-github-latest-release>
+                        <n-docs-github-link></n-docs-github-link>
+                    </div>
+                    <div class="small-12 columns text-center">
+                        <a href="#getStarted" class="n-docs-hero__scroll-anchor">Get started</a>
+                    </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="small-12 columns text-center">
-                    <h3>Demo tiem</h3>
-                </div>
-                <div class="small-12 columns">
-                    <h5>Using the Nodes CDN:</h5>
-                </div>
-                <div class="small-4 columns">
-                    <h6>width="200" height="200" mode="crop" n-image-options="demo.nodesCDNoptions"</h6>
+        </div>
+    
+        <div class="n-docs-content">
+            <div class="n-docs-content__primary" id="getStarted">
+                <div ng-controller="demoController as demo">
                     <div n-image
-                         n-image-options="demo.nodesCDNoptions"
                          width="200"
                          height="200"
                          mode="crop"
                          n-src="https://d1gwekl0pol55k.cloudfront.net/image/dnf-biodiv/default/Egern.dUMocWKYJB.jpg"></div>
                 </div>
-                <div class="small-4 columns">
-                    <h6>width="200" height="200" mode="fit" n-image-options="demo.nodesCDNoptions"</h6>
-                    <div n-image
-                         n-image-options="demo.nodesCDNoptions"
-                         width="200"
-                         height="200"
-                         mode="fit"
-                         n-src="https://d1gwekl0pol55k.cloudfront.net/image/dnf-biodiv/default/Egern.dUMocWKYJB.jpg"></div>
+                
+                <div class="row" id="availableUI" title="UI Components" data-scrollspy-broadcast>
+                    <div class="small-12 columns">
+                        <h2>
+                            UI Components
+                        </h2>
+                    </div>
+                    <div class="small-12 columns">
+                        <p class="lead">nDocs Github Link:</p>
+                        <n-docs-github-link></n-docs-github-link>
+                    </div>
+                    <div class="small-12 columns">
+                        <p class="lead">nDocs Github Stars:</p>
+                        <n-docs-github-stars></n-docs-github-stars>
+                    </div>
+                    <div class="small-12 columns">
+                        <p class="lead">nDocs Github Latest Release:</p>
+                        <n-docs-github-latest-release></n-docs-github-latest-release>
+                    </div>
+                    <div class="small-12 columns">
+                        <p class="lead">nDocs Npm Install Guide:</p>
+                        <n-docs-npm-install-guide></n-docs-npm-install-guide>
+                    </div>
+                    <div class="small-12 columns">
+                        <p class="lead">nDocs Angular Install Guide:</p>
+                        <n-docs-angular-install-guide></n-docs-angular-install-guide>
+                    </div>
+                    <div class="small-12 columns">
+                        <p class="lead">nDocs Callouts:</p>
+                        <p>Severity 0</p>
+                        <n-docs-callout severity="0">
+                            <p class="n-docs-callout__title">Just something nice</p>
+                            <div class="n-docs-callout__content">
+                                <p>Could be a nice trick to take full advantage of XY</p>
+                            </div>
+                        </n-docs-callout>
+                        <p>Severity 1</p>
+                        <n-docs-callout severity="1">
+                            <p class="n-docs-callout__title">Oh this is probably worth reading</p>
+                            <div class="n-docs-callout__content">
+                                <p>Maybe a browser inconsistency bug?</p>
+                            </div>
+                        </n-docs-callout>
+                        <p>Severity 2</p>
+                        <n-docs-callout severity="2">
+                            <p class="n-docs-callout__title">EVERYTHING IS ON FIRE!</p>
+                            <div class="n-docs-callout__content">
+                                <p>Breaking changes! Deprecations! OH MY!</p>
+                            </div>
+                        </n-docs-callout>
+                        <p>No Severity</p>
+                        <n-docs-callout>
+                            <p class="n-docs-callout__title">Same as using severity 0</p>
+                        </n-docs-callout>
+                    </div>
+                    <div class="small-12 columns">
+                        <p class="lead">nDocs Nodes Website Link</p>
+                        <n-docs-nodes-website-link></n-docs-nodes-website-link>
+                    </div>
+                    <div class="small-12 columns">
+                        <p class="lead">nDocs Nodes Engineering Blog Link</p>
+                        <n-docs-nodes-engeering-blog-link></n-docs-nodes-engeering-blog-link>
+                    </div>
+                    <div class="small-12 columns">
+                        <p class="lead">nDocs Table</p>
+                        <table class="n-docs-table">
+                            <thead>
+                                <tr>
+                                    <td>
+                                        Option
+                                    </td>
+                                    <td>
+                                        Default
+                                    </td>
+                                    <td>
+                                        Description
+                                    </td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <code>foo</code>
+                                    </td>
+                                    <td>
+                                        <code>'bar'</code>
+                                    </td>
+                                    <td>
+                                        Toggles using foo
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
-                <div class="small-4 columns">
-                    <h6>width="200" height="200" mode="resize" n-image-options="demo.nodesCDNoptions"</h6>
-                    <div n-image
-                         n-image-options="demo.nodesCDNoptions"
-                         width="200"
-                         height="200"
-                         mode="resize"
-                         n-src="https://d1gwekl0pol55k.cloudfront.net/image/dnf-biodiv/default/Egern.dUMocWKYJB.jpg"></div>
+                
+                <div class="row" id="syntaxHighlighting" title="Syntax Highlighting" data-scrollspy-broadcast>
+                    <div class="small-12 columns">
+                        <h2>
+                            Syntax Highlighting
+                        </h2>
+                    </div>
+                    <div class="small-12 columns">
+                        <n-docs-code-example>
+                            <hljs hljs-include="'markupExample'"></hljs>
+                        </n-docs-code-example>
+            
+                        <n-docs-code-example>
+                            <hljs hljs-include="'javaScriptExample'"></hljs>
+                        </n-docs-code-example>
+                    </div>
                 </div>
-                <hr/>
             </div>
-            <div class="row">
-                <div class="small-12 columns">
-                    <h5>Lazy examples</h5>
-                </div>
-                <div class="small-6 columns">
-                    <ul class="small-block-grid-2 medium-block-grid-4 large-block-grid-6">
-                        <li ng-repeat="img in demo.images">
-                            <div n-image
-                                 n-src="img"
-                                 n-image-options="demo.imageOptions"
-                                 alt="One image"></div>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="small-6 columns" id="wrapperContainer" style="height: 500px; overflow-y: auto">
-                    <ul class="small-block-grid-2 medium-block-grid-4 large-block-grid-6">
-                        <li ng-repeat="img in demo.innerImages">
-                            <div n-image
-                                 n-image-container="#wrapperContainer"
-                                 n-src="img"
-                                 n-image-options="demo.imageOptions"
-                                 alt="One image"></div>
-                        </li>
-                    </ul>
+            
+            <div class="n-docs-content__secondary hide-for-small-only">
+                <div class="row">
+                    <div class="small-12 columns">
+                        <n-docs-toc scan="#getStarted"></n-docs-toc>
+                    </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="small-12 columns">
-                    <h5>Aspect examples</h5>
-                    <ul class="small-block-grid-4">
-                        <li><div class="n-image__wrapper n-image__aspect-wrapper n-image--ratio-4-2">4-2</div></li>
-                        <li><div class="n-image__wrapper n-image__aspect-wrapper n-image--ratio-2-1">2-1</div></li>
-                        <li><div class="n-image__wrapper n-image__aspect-wrapper n-image--ratio-16-9">16-9</div></li>
-                        <li><div class="n-image__wrapper n-image__aspect-wrapper n-image--ratio-3-2">3-2</div></li>
-                        <li><div class="n-image__wrapper n-image__aspect-wrapper n-image--ratio-1-1">1-1</div></li>
-                        <li><div class="n-image__wrapper n-image__aspect-wrapper n-image--ratio-4-3">4-3</div></li>
-                        <li><div class="n-image__wrapper n-image__aspect-wrapper n-image--ratio-3-4">3-4</div></li>
-                    </ul>
-                </div>
-            </div>
-
-            <!--<div id="imageWrappingContainer" style="height: 500px; overflow-y: auto;">-->
-                <!--<div ng-repeat="img in demo.images">-->
-                    <!--<div n-image-->
-                         <!--n-src="img"-->
-                         <!--n-image-container="#imageWrappingContainer"-->
-                         <!--n-image-options="demo.imageOptions"></div>-->
-                <!--</div>-->
-            <!--</div>-->
-
-            <!--<div ng-repeat="img in demo.images">-->
-                <!--<div n-image n-src="img" width="800" height="600"></div>-->
-            <!--</div>-->
-            <!--<div ng-repeat="img in demo.images">-->
-                <!--<div n-image n-src="img"></div>-->
-            <!--</div>-->
         </div>
-		<!-- bower:js -->
-		<script src="bower_components/angular/angular.js"></script>
-		<script src="bower_components/angular-animate/angular-animate.js"></script>
-		<script src="dist/nImage.js"></script>
-		<!-- endbower -->
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js"></script>
+        <script src="vendor.js"></script>
 
-		<!--<script src="src/nImage.module.js"></script>-->
-		<!--<script src="src/nImage.directive.js"></script>-->
+        <!-- component.js will be used on dev, in production it will be rewrited to minfied version component.min.js -->
+        <script src="component.js"></script>
+    
+        <script src="example.js"></script>
+    
+<script id="markupExample" type="text/ng-template">
+<!-- setup selection display/input input:text -->
+<p class="lead">
+    selection: <input type="text" ng-model="selection">
+</p>
+            
+<!-- bind scope.selection to ngSelect model -->
+<div class="row example" ng-select="selection" super-directive>
+    <div class="col-xs-12">
+            
+        <!-- five images with number as option value -->
+        <!-- add "selected" class on option selected -->
+        <img class="img-polaroid img-circle"
+            ng-repeat="num in [1, 2, 3, 4, 5] track by $id($index)"
+            ng-src="http://lorempixel.com/100/100/sports/{{ num }}"
+            ng-select-option="{{ num }}"
+            select-class="{'selected': $optSelected}">
+    </div>
+</div>
+</script>
+        
+<script id="javaScriptExample" type="text/ng-template">
+angular.module('nDocs')
+    .service('nDocsGithubService', function($q, $http, $window, GITHUB) {
+        return {
+            getStatistics: getStatistics
+        };
 
-		<script>
-			angular.module('demoApp', ['nImage', 'ngAnimate']);
+        function getStatistics() {
 
-            angular.module('demoApp')
-                    .controller('demoCtrl', demoCtrl)
-            function demoCtrl() {
-                var vm = this;
+            var deferred = $q.defer();
 
-                vm.nodesCDNoptions = {
-                    loadingTemplateUrl: 'loading-test.html'
-                };
+            var repoUrl = [
+                GITHUB.URL,
+                GITHUB.NAME,
+                GITHUB.REPOSITORY
+            ].join('/');
 
-                vm.imageOptions = {
-//                    fallbackImage: 'http://placehold.it/768x100/000000/ffffff&text=fallbackImage',
-                    loadingTemplateUrl: 'loading-test.html',
-//                    loadingTemplate: '<h1>Nedlaster...</h1>',
-                    disableLazy: false,
-                    nodesCDN: false,
-                    aspectRatio: '4-3'
-                };
-
-                vm.altText = 'My alt text defined in some controller';
-
-                vm.images = [];
-                vm.innerImages = [];
-
-                vm.randomize = function() {
-                    vm.images = [];
-                    for(var i = 0; i < 200; i++) {
-                        var img = _generateRandomImage();
-                        vm.images.push(img);
-                    }
-                };
-                vm.randomizeInner = function() {
-                    vm.innerImages = [];
-                    for(var i = 0; i < 200; i++) {
-                        var img = _generateRandomImage();
-                        vm.innerImages.push(img);
-                    }
-                };
-                vm.randomize();
-                vm.randomizeInner();
-
-                function _generateRandomImage() {
-                    var color = Math.floor(Math.random()*16777215).toString(16);
-                    return 'http://placehold.it/800x600/' + color + '/ffffff';
+            var repoRequest = {
+                method: 'GET',
+                url: repoUrl,
+                cache: true,
+                params: {
+                    client_id: GITHUB.CLIENT_ID,
+                    client_secret: GITHUB.CLIENT_SECRET
                 }
+            };
+
+            var releasesUrl = [
+                GITHUB.URL,
+                GITHUB.NAME,
+                GITHUB.REPOSITORY,
+                'releases',
+                'latest'
+            ].join('/');
+
+            var releasesRequest = {
+                method: 'GET',
+                url: releasesUrl,
+                cache: true,
+                params: {
+                    client_id: GITHUB.CLIENT_ID,
+                    client_secret: GITHUB.CLIENT_SECRET
+                }
+            };
+
+            if(!$window.localStorage.getItem(GITHUB.NAME + '-' + GITHUB.REPOSITORY)) {
+                _getFromGithub().then(function(data) {
+                    deferred.resolve(data);
+                });
+            } else {
+                var localStorageData = JSON.parse($window.localStorage.getItem(GITHUB.NAME + '-' + GITHUB.REPOSITORY));
+                var lastTime = localStorageData.timeStamp;
+
+                // Cache response for 10sec to avoid hitting the quota limits
+                if(new Date().valueOf() - lastTime < 10000) {
+                    deferred.resolve(localStorageData);
+                } else {
+                    _getFromGithub().then(function(data) {
+                        deferred.resolve(data);
+                    });
             }
-		</script>
-	</body>
+
+        }
+
+        return deferred.promise;
+
+        function _getFromGithub() {
+            return $q.all([$http(repoRequest), $http(releasesRequest)])
+                .then(function(responses) {
+                    var repo = responses[0].data;
+                    var releases = responses[1].data;
+                    
+                    var toStorage = {
+                        timeStamp: new Date().valueOf(),
+                        repoStars: repo.stargazers_count,
+                        repoName: repo.name,
+                        repoUrl: repo.html_url,
+                        releaseName: releases.name,
+                        releaseUrl: releases.html_url
+                    };
+                    
+                    $window.localStorage.setItem(GITHUB.NAME + '-' + GITHUB.REPOSITORY, JSON.stringify(toStorage));
+                    
+                    return toStorage;
+            
+                })
+                .catch(function(response) {
+                    deferred.reject(response);
+                });
+        }
+
+    }
+});
+</script>
+
+    </body>
 </html>
