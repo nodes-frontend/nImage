@@ -1,0 +1,12 @@
+*~
+.DS_Store
+.coveralls.yml
+node_modules
+jspm_packages
+.idea
+coverage
+npm-debug.log
+tmp
+typings
+.publish
+release
